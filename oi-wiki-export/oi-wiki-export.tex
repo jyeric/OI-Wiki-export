@@ -186,8 +186,9 @@
     \else
         \begin{mdframed}[%
             roundcorner=3pt,
-            linewidth=0pt,
-            backgroundcolor=#1!20!white,
+            linewidth=1pt,
+            linecolor=#1,
+            backgroundcolor=white,
             frametitle={#2},
             frametitlefont={\sffamily},
             frametitlerule=false,
@@ -203,6 +204,15 @@
     \fi
 }
 
+% Define a "tabbed" environment: #1 = title
+\newenvironment{tabbed}[1]{%
+  \begin{itemize}
+    \item #1 \par
+    \vspace{0.5em}
+}{%
+  \end{itemize}
+}
+
 \captionsetup[figure]{labelsep=space}
 \captionsetup[table]{labelsep=space}
 
@@ -213,7 +223,7 @@
 \newcommand{\hytt}[1]{\texttt{\hyphenchar\font="200B #1}}
 
 % minted settings
-\setminted{fontsize=\small}
+\setminted{fontsize=\small,backgroundcolor=black!5!white}
 \newmdenv[%
     roundcorner=5pt,
     linewidth=0pt,
