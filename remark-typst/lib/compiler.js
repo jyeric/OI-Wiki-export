@@ -95,14 +95,14 @@ function toTypst(tree, options) {
       const archiveLinks = entry && entry.archiveLink
       if (Array.isArray(archiveLinks) && archiveLinks.length > 0) {
         const archiveUrl = archiveLinks.at(-1)["link"]
-        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), qrcode("{3}")\n'.format(
+        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), qrcode("{3}"), \n'.format(
           i + 1,
           link.location.replace(/\\/g, '\\\\'),
           link.plainText,
           archiveUrl)
       }
       else {
-        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}")\n'.format(
+        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), \n'.format(
           i + 1,
           link.location.replace(/\\/g, '\\\\'),
           link.plainText)
