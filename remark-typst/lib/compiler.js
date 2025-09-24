@@ -91,9 +91,10 @@ function toTypst(tree, options) {
     article += '#links-grid('
     for (const [i, link] of arrayLinks.entries()) {
       const originalUrl = link.location.replace(/\\/g, "");
-      if (archiveData.hasOwnProperty(originalUrl) && archiveData[originalUrl]["archiveLink"]!=[] 
-            && archiveData[originalUrl]["archiveLink"]!=null) {
-        const archiveUrl = archiveData[originalUrl]["archiveLink"].at(-1);
+      const entry = archiveData[originalUrl];
+      const archiveLinks = entry && entry.archiveLink
+      if (Array.isArray(archiveLinks) && archiveLinks.length > 0) {
+        const archiveUrl = archiveLinks.at(-1)["link"]
         article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), qrcode("{3}")\n'.format(
           i + 1,
           link.location.replace(/\\/g, '\\\\'),

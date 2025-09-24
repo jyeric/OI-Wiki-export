@@ -107,9 +107,12 @@ export default function compiler(options) {
           ) {
             url[i] = encodeURI(url[i]);
           }
-          let urlFormat = ""
-          if (archiveData.hasOwnProperty(url[i]) && archiveData[url[i]]["archiveLink"]!=[] && archiveData[url[i]]["archiveLink"]!=null) {
-            const archiveUrl = archiveData[url[i]]["archiveLink"].at(-1)
+          let urlFormat = "";
+          const originalUrl = url[i].replace(/\\/g, "");
+          const entry = archiveData[originalUrl];
+          const archiveLinks = entry && entry.archiveLink
+           if (Array.isArray(archiveLinks) && archiveLinks.length > 0) {
+            const archiveUrl = archiveData[originalUrl]["archiveLink"].at(-1)["link"];
             // if (
             //   archiveUrl
             //     .split("")
@@ -122,6 +125,7 @@ export default function compiler(options) {
           }
           else {
             urlFormat = `\\quad \\qrcode[height=1cm]{${url[i]}}`;
+            console.log(`Unarchive:${originalUrl}`);
           }
           article += urlFormat;
         }
