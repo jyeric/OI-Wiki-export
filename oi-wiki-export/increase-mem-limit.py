@@ -6,7 +6,7 @@ import subprocess
 config_file = subprocess.check_output(["kpsewhich", "texmf.cnf"]).decode().strip()
 
 memory_setting = "main_memory"
-new_value = "50000000"
+new_value = "16000000"
 
 output_lines = []
 with open(config_file, "r") as f:
