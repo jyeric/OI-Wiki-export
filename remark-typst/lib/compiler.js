@@ -100,7 +100,7 @@ function toTypst(tree, options) {
           archiveUrl)
       }
       else {
-        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), block(width: .9cm, height: .9cm)[] \n'.format(
+        article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), block(width: .9cm, height: .9cm)[], \n'.format(
           i + 1,
           link.location.replace(/\\/g, '\\\\'),
           link.plainText)
