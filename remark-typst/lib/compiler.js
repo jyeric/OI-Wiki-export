@@ -91,7 +91,7 @@ function toTypst(tree, options) {
     article += '#links-grid('
     for (const [i, link] of arrayLinks.entries()) {
       const originalUrl = link.location.replace(/\\/g, "")
-      const archiveUrl = archiveData[originalUrl] && archiveData[originalUrl]["archiveLink"]
+      const archiveUrl = archiveData[originalUrl] && archiveData[originalUrl]["shortArchiveLink"]
       if (archiveUrl != null) {
         article += 'links-cell[#text(fill: cmyk(0%, 100%, 100%, 0%))[\\[{0}\\]] #link("{1}")[{2}]], qrcode("{1}"), qrcode("{3}"), \n'.format(
           i + 1,

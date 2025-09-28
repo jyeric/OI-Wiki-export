@@ -107,7 +107,7 @@ export default function compiler(options) {
           }
           let urlFormat = "";
           const originalUrl = url[i].replace(/\\/g, "");
-          const archiveUrl = archiveData[originalUrl] && archiveData[originalUrl]["archiveLink"]
+          const archiveUrl = archiveData[originalUrl] && archiveData[originalUrl]["shortArchiveLink"]
            if (archiveUrl != null) {
             urlFormat = `\\quad \\qrcode[height=1cm]{${url[i]}} \\quad \\quad \\qrcode[height=1cm]{${archiveUrl}}`;
           }
